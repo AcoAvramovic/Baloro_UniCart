@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>UniCart - Nova lista</title>
+    <link rel="shortcut icon" href="slike/iconCart.png"/>   
+    <link rel='stylesheet' type='text/css' href='fajlovi/bootstrap.min.css'>
+    <script src='fajlovi/bootstrap.min.js'></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script>
+
+    function myFunction() {
+	var i="0";
+      document.getElementById("myText").innerHTML = i;
+	  
+    }
+  </script>
+
+<style>
+h2 { font-family: Candara, Arial, Helvetica, sans-serif; font-size: 32px; margin = 10px; float=left; color: #f2f2f2 }
+a {transition: 15s;}
+
+
+
+body {
+ 
+  width:100%;
+  font-family: 'Lato';
+  background:url(slike/black.jpg);
+  height: 650px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  
+}
+
+
+input[type=button] {
+  width:90%;
+  background-color: #ccccee;
+  border: none;
+  color:black;
+  padding: 10px 10px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+.topnav {
+  overflow: hidden;
+  background-color: #8da4aa;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  opacity:0.6;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #34c2a8;
+  color: white;
+}
+.topnav-left {
+  float: left;
+}
+
+.topnav-right {
+  float: right;
+}
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+/* Include the padding and border in an element's total width and height */
+* {
+  box-sizing: border-box;
+}
+
+
+
+/* Remove margins and padding from the list */
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the list items */
+ul li {
+border-radius: 5px;
+  width:50%;
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  list-style-type: none;
+  background: #eee;
+  color: #111;
+  font-size: 18px;
+  transition: 0.2s;
+  
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+  
+}
+
+/* Darker background-color on hover */
+ul li:hover {
+  background: #ddd;
+}
+
+/* When clicked on, add a background color and strike out text */
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+/* Style the close button */
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Style the header */
+.lista {
+border-radius: 5px;
+  width:50%;
+  background-color: #ccccdd;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+
+/* Clear floats after the header */
+.lista:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the input */
+input {
+  margin: 0;
+  border: none;
+  border-radius: 15px;
+  width: 70%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+/* Style the "Add" button */
+.addBtn {
+  border-radius: 15px;
+  padding: 10px;
+  width: 25%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+}
+
+
+.form-inline {  
+width:60%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  text-align: center;
+}
+
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+.form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.form-inline button {
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  border: 1px solid #ddd;
+  color: white;
+  cursor: pointer;
+}
+
+.form-inline button:hover {
+  background-color: royalblue;
+}
+
+@media (max-width: 800px) {
+  .form-inline input {
+    margin: 10px 0;
+  }
+  
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.raspored{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+
+.container-fluid.pozicioniranje{ 
+  margin-top: 15px;
+}
+
+h4 { font-family: Candara, Arial, Helvetica, sans-serif; font-size: 20px; color: #f2f2f2 }
+h3 { font-family: Candara, Arial, Helvetica, sans-serif; font-size: 25px; color: #f2f2f2 }
+
+</style>
+</head>
+<body onload="myFunction()">
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="NovaLista.html">Napravi novu listu</a>
+  <p></p>
+  <p style=color:gray><small>   Već imaš kod?</small></p>
+  <a href="uclani.html">Pridruži se</a>
+  <a href="preglListe.html">Pregledaj liste</a>
+  <a href="kontakt.html">Kontaktirajte nas</a>
+  <a href="instalacijaApp.html">Instaliraj našu aplikaciju</a>
+  <a href="moderator.html">Izloguj se</a>
+</div>
+
+<div id="main">
+  <span style="color:white;font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Meni</span>
+</div>
+
+
+
+
+<div class="topnav">
+  <a href="moderator.html">Početna</a>
+  
+  
+  
+  <div class="topnav-right">
+    <a href="pomoc.html">Pomoć</a>
+    <a href="greska.html">Prijavi grešku</a>
+  </div>
+  
+</div>
+
+
+
+
+
+
+<div class="container-fluid pozicioniranje">
+  <div class="row">
+    <div class="col-sm-3">
+      <h2>Unesite novi budžet:</h2>
+      <form class="form-inline" method="post" action="unetBudzet.html">
+        <input type="text" id="budzet" placeholder="Unisite broj..." name="Budzet">
+        <input type="submit" name="buttInput" value="Unesite" onclick="budzetic(id='budzet')">
+      </form>
+       <h2>Unesite račun:</h2>
+       <form class="form-inline" method="post" action="unetRacun.html">
+        <input type="text" id="racun" placeholder="Iznos računa je..." name="racun">
+        <input type="submit" name="buttInput" value="Unesite" onclick="budzetic(id='budzet')">
+      </form>
+    </div>
+      <div class="col-sm-6 lista" id="myDIV">
+        <h2 style="margin:5px">Lista za kupovinu</h2>
+        <h2 style="margin:5px">Vaš budžet je(rsd): <span id="myText"></span> </h2>
+        
+        <input type="text" id="myInput" placeholder="Nova stvar...">
+        <span onclick="newElement()" class="addBtn"> <b> Ubaci </b></span>
+      
+      <br>
+      <br>
+        <ul id="myUL">
+          <li>Jabuke</li>
+          <li class="checked">Salata</li>
+          <li>Ubrusi</li>
+          <li>Sveska(linije)</li>
+        </ul>
+      </div>
+      <div class="col-sm-3">
+        <h3>Osnovne namirnice</h3>
+        <h4>Voće:</h4>
+        <form> 
+          <input type="button" name="buttInput" value="Jabuke" onclick="msg('Jabuke')">
+          <input type="button" name="buttInput" value="Banane" onclick="msg('Banane')">
+        </form>
+        
+        <h4>Povrće:</h4>
+        <form>
+          <input type="button" name="buttInput" value="Kupus salata" onclick="msg('Kupus salata')">
+          <input type="button" name="buttInput" value="Paradajz" onclick="msg('Paradajz')">
+        </form>
+        
+        <h4>Mlečni prizvodi:</h4>
+        <form>
+          <input type="button" name="buttInput" value="Mleko" onclick="msg('Mleko')">
+          <input type="button" name="buttInput" value="Sir" onclick="msg('Sir')">
+        </form>
+      </div>
+  </div>
+</div>
+
+
+</style>
+</head>
+
+
+
+<script>
+// Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("Prazan unos!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+
+function budzetic(parameter) {
+   var lue = document.getElementById("myText").value;
+   document.getElementById("myText").value = parameter ;
+}
+</script>
+
+
+
+
+
+<script>
+function msg(parameter) {
+
+ var li = document.createElement("li");
+ var inputValue =parameter;
+ var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  parameter = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+  
+}
+</script>
+
+
+
+</html>
